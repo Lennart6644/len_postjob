@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Postbote</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="prompt" class="prompt hidden" role="status">
+        <kbd id="promptKey">E</kbd>
+        <span id="promptText"></span>
+    </div>
+
+    <aside id="hud" class="hud hidden" aria-live="polite">
+        <header class="hud-head">
+            <span data-i18n="ui.hud_title"></span>
+            <time id="hudTime">00:00</time>
+        </header>
+        <div class="hud-body">
+            <p class="task" id="hudTask"></p>
+            <p class="dist" id="hudDist"></p>
+            <dl class="rows">
+                <div><dt data-i18n="ui.hud_cargo"></dt><dd id="hudCargo"></dd></div>
+                <div><dt data-i18n="ui.hud_deliveries"></dt><dd id="hudDel">0</dd></div>
+                <div><dt data-i18n="ui.hud_earned"></dt><dd id="hudEarn">0</dd></div>
+            </dl>
+            <p class="warn hidden" id="hudWarn" data-i18n="ui.hud_vehicle_far"></p>
+        </div>
+    </aside>
+
+    <div id="minigame" class="minigame hidden" role="status" aria-live="polite">
+        <div class="mg-head">
+            <span id="mgLabel"></span>
+            <span id="mgRound"></span>
+        </div>
+        <div class="mg-bar">
+            <div class="mg-zone" id="mgZone"></div>
+            <div class="mg-cursor" id="mgCursor"></div>
+        </div>
+        <p class="mg-hint" id="mgHint"></p>
+    </div>
+
+    <div id="progress" class="progress hidden" role="status">
+        <span id="progressLabel"></span>
+        <div class="progress-track"><i id="progressFill"></i></div>
+    </div>
+
+    <div id="stamp" class="stamp-toast hidden" aria-live="assertive">
+        <div class="postmark">
+            <span class="pm-title" data-i18n="ui.stamp_title"></span>
+            <span class="pm-amount" id="pmAmount"></span>
+            <span class="pm-tip hidden" id="pmTip"></span>
+            <span class="pm-xp" id="pmXp"></span>
+        </div>
+        <p class="levelup hidden" id="pmLevel"></p>
+    </div>
+
+    <div id="menu" class="overlay hidden">
+        <div class="slip-wrap">
+            <section class="slip" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+
+                <aside class="stub">
+                    <div class="level-stamp" id="levelStamp">
+                        <span id="lvl">1</span>
+                        <small data-i18n="ui.menu_level"></small>
+                    </div>
+                    <p class="worker" id="worker">–</p>
+                    <p class="rank" id="rank"></p>
+
+                    <div class="xp" id="xpBlock">
+                        <div class="xp-track" id="xpTrack" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                            <i id="xpFill"></i>
+                        </div>
+                        <span id="xpText"></span>
+                    </div>
+                    <p class="bonus" id="bonus"></p>
+                </aside>
+
+                <div class="main">
+                    <button class="close" id="btnClose" type="button" data-i18n-aria="ui.menu_close">×</button>
+
+                    <h1 id="menuTitle" data-i18n="ui.menu_title"></h1>
+                    <p class="lead" id="lead"></p>
+
+                    <dl class="facts">
+                        <div><dt data-i18n="ui.menu_total_deliveries"></dt><dd id="sDel">0</dd></div>
+                        <div><dt data-i18n="ui.menu_total_earned"></dt><dd id="sEarn">0</dd></div>
+                    </dl>
+
+                    <div class="shiftbox hidden" id="shiftBox">
+                        <span data-i18n="ui.menu_shift_running"></span>
+                        <strong id="shiftText"></strong>
+                    </div>
+
+                    <div class="actions">
+                        <button class="btn primary" id="btnShift" type="button"></button>
+                        <button class="btn ghost" id="btnUniform" type="button"></button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
